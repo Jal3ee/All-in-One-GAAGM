@@ -218,7 +218,7 @@ export default function PdfViewerModal({ doc, employees, onClose }) {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-            <div className="glass-card w-full max-w-5xl max-h-[95vh] overflow-hidden flex flex-col bg-white/95 dark:bg-slate-800/95 shadow-2xl animate-zoom-in relative">
+            <div className="glass-card w-full max-w-6xl h-[95vh] overflow-hidden flex bg-white/95 dark:bg-slate-800/95 shadow-2xl animate-zoom-in relative rounded-2xl border border-slate-200/50 dark:border-slate-700/50">
             {/* Toolbar Sidebar */}
             <div className="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 flex flex-col p-4">
                 <div className="flex items-center justify-between mb-6">
