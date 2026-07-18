@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-surface: rgba(255, 255, 255, 0.85);
+  --color-surface-hover: rgba(255, 255, 255, 1);
+  --color-border: rgba(148, 163, 184, 0.4);
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[var(--color-surface)] backdrop-blur-md border border-[var(--color-border)] shadow-[0_8px_30px_rgb(0,0,0,0.08)];
+  }
+  .glass-card {
+    @apply bg-[var(--color-surface)] backdrop-blur-xl border border-[var(--color-border)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl;
+  }
+  .glass-input {
+    @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-300 dark:border-slate-600 shadow-inner rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all px-4 py-2 text-slate-800 dark:text-slate-100;
+  }
+  .glass-button {
+    @apply bg-primary text-white font-medium rounded-xl px-6 py-2 shadow-lg shadow-primary/30 hover:bg-primary-hover hover:shadow-primary/50 transition-all;
+  }
+}
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  --text-base: #1e293b;
+}
+
+:root.dark {
+  --color-surface: rgba(30, 41, 59, 0.85);
+  --color-surface-hover: rgba(30, 41, 59, 1);
+  --color-border: rgba(51, 65, 85, 0.6);
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --text-base: #f8fafc;
+}
+
+body {
+  @apply min-h-screen font-sans transition-colors duration-500;
+  color: var(--text-base);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+}
+
+/* Animations */
+@keyframes slide-in-down {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-up {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoom-in {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-slide-in-down {
+  animation: slide-in-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
